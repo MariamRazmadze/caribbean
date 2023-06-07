@@ -1,0 +1,98 @@
+{
+  "popular": [
+    {
+      "destination": "Alaska",
+      "type": "popular"
+    },
+    {
+      "destination": "Bahamas",
+      "type": "popular"
+    },
+    {
+      "destination": "Caribbean",
+      "type": "popular"
+    },
+    {
+      "destination": "Europe",
+      "type": "popular"
+    },
+    {
+      "destination": "Mexico",
+      "type": "popular"
+    }
+  ],
+  "other": [
+    {
+      "destination": "Africa",
+      "type": "other"
+    },
+    {
+      "destination": "Arctic-Anarctic",
+      "type": "other"
+    },
+    {
+      "destination": "Asia",
+      "type": "other"
+    },
+    {
+      "destination": "Australia-New Zealand",
+      "type": "other"
+    },
+    {
+      "destination": "Bermuda",
+      "type": "other"
+    },
+    {
+      "destination": "Canada-New England",
+      "type": "other"
+    },
+    {
+      "destination": "Central America",
+      "type": "other"
+    },
+    {
+      "destination": "Galapagos",
+      "type": "other"
+    },
+    {
+      "destination": "Getaway at Sea",
+      "type": "other"
+    },
+    {
+      "destination": "Hawaii",
+      "type": "other"
+    },
+    {
+      "destination": "Middle East",
+      "type": "other"
+    },
+    {
+      "destination": "Pacific Coastal",
+      "type": "other"
+    },
+    {
+      "destination": "Panama Canal",
+      "type": "other"
+    },
+    {
+      "destination": "South America",
+      "type": "other"
+    },
+    {
+      "destination": "South Pacific",
+      "type": "other"
+    },
+    {
+      "destination": "Transatlantic",
+      "type": "other"
+    },
+    {
+      "destination": "Transpacific",
+      "type": "other"
+    },
+    {
+      "destination": "World",
+      "type": "other"
+    }
+  ]
+}

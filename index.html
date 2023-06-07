@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      type="image/x-icon"
+      href="./assets/favicon.ico"
+      sizes="16x16 32x32"
+      rel="shortcut icon" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./script.js" defer></script>
+    <title>Caribbean cruises</title>
+  </head>
+  <body>
+    <div class="main-navigation">
+      <nav class="navbar">
+        <ul class="navbar-left">
+          <li class="navbar-item navbar-logo">
+            <a href="#"
+              ><img src="./assets/navbar/logo.svg"
+            /></a>
+          </li>
+          <button
+            class="navbar-item navbar-more navbar-button tablet-desktop align-icon ">
+            More travel 
+            <svg
+              viewBox="0 0 24 24"
+              width="18px"
+              height="18px"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"
+                fill="#343B53" />
+            </svg>
+          </button>
+        </ul>
+        <ul class="navbar-right">
+          <li class="navbar-item navbar-more mobile">
+            <svg viewBox="0 0 24 24" width="24px" height="24px" xmlns="http://www.w3.org/2000/svg">
+              <path 
+               d="M14.71 14h.79l4.99 5L19 20.49l-5-4.99v-.79l-.27-.28a6.5 6.5 0 1 1 .7-.7l.28.27zM5 9.5a4.5 4.5 0 1 0 8.99.01A4.5 4.5 0 0 0 5 9.5z"
+                fill="#343B53"
+              />
+        </svg>
+          </li>
+          <li class="navbar-item navbar-english show-modal desktop align-icon-desktop ">
+            <svg
+              viewBox="0 0 24 24"
+              width="18px"
+              height="18px"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11.99 2A10 10 0 1 0 12 21.99 10 10 0 0 0 11.99 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82A14.09 14.09 0 0 1 12 4.04zM4.26 14a8.17 8.17 0 0 1 0-4h3.38a16.45 16.45 0 0 0 0 4H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.99 7.99 0 0 1 5.08 16zm2.95-8H5.08a7.99 7.99 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.03 8zM12 19.96A14.09 14.09 0 0 1 10.09 16h3.82A14.09 14.09 0 0 1 12 19.96zM14.34 14H9.66a14.49 14.49 0 0 1 0-4h4.68a14.5 14.5 0 0 1 0 4zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56zM16.36 14c.16-1.34.16-2.66 0-4h3.38a8.17 8.17 0 0 1 0 4h-3.38z"
+                fill="#343B53" />
+            </svg>
+            English
+          </li>
+          <li class="navbar-item desktop">
+            <a
+              href="#"
+              target=""
+              >List your property</a
+            >
+          </li>
+          <li class="navbar-item desktop">
+            <a href="#">Support</a>
+          </li>
+          <li class="navbar-item desktop">
+            <a href="#">Trips</a>
+          </li>
+         
+          <li class="navbar-item navbar-suitcase mobile-tablet">
+            <svg
+              viewBox="0 0 24 24"
+              width="24px"
+              height="24px"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16 6h4a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2l.01-11c0-1.11.88-2 1.99-2h4V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2zm-6 0h4V4h-4v2z"
+                fill="#343B53" />
+            </svg>
+          </li>
+          <li class="navbar-item navbar-bell tablet-desktop">
+            <svg
+              viewBox="0 0 24 24"
+              width="24px"
+              height="24px"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M18 11v5l2 2v1H4v-1l2-2v-5c0-3.08 1.63-5.64 4.5-6.32V4a1.5 1.5 0 1 1 3 0v.68C16.36 5.36 18 7.93 18 11zm-4 9a2 2 0 1 1-4 0h4z"
+                fill="#343B53" />
+            </svg>
+          </li>
+          <button
+            class="navbar-item navbar-sign-in navbar-button desktop">
+            Sign in
+          </button>
+          <div class="dropdown dropdown-right hidden">
+            <div class="dropdown-layout">
+            <div class="upper-dropdown">
+              <div class="discount-image">
+                <img src="assets/navbar/discount.svg" alt="discount" />
+              </div>
+              <h2 class="discount-text">
+                Save an average of 15% on thousands of hotels when you're signed
+                in
+              </h2>
+              <div class="auth sign-in">
+                <a
+                  href="#"
+                  >Sign in</a
+                >
+              </div>
+              <div class="auth sign-up">
+                <a
+                  href="#"
+                  >Sign up, it's free</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="middle-layout">
+              <a
+              href="#"
+              class="dropdown-item decorated mobile">
+              <span>Notifications</span>
+            </a>
+              <a
+                href="#"
+                class="dropdown-item plain">
+                <span>List of favorites</span>
+              </a>
+            </div>
+            <a href="#" class="dropdown-item plain mobile-tablet">
+              <span>Customer support</span>
+            </a>
+            <a href="#" class="dropdown-item plain mobile-tablet">
+              <span>Feedback</span>
+            </a>
+            <a href="#" class="dropdown-item plain">
+              <span>List your property</span>
+            </a>
+            <a href="#" class="dropdown-item decorated navbar-english mobile-tablet">
+              <span>English · USD $ ·</span> 
+              <img class="dropdown-flag" alt="" src="https://a.travel-assets.com/egds/marks/flags/us.svg"/>
+           </a>
+          </div>
+          <button class="navbar-item navbar-sign-in navbar-button mobile-tablet">
+            <svg
+              viewBox="0 0 24 24"
+              width="24px"
+              height="24px"
+              xmlns="http://www.w3.org/2000/svg">
+              <g fill="#343B53">
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6zM6 15.98a7.2 7.2 0 0 0 12 0c-.03-1.99-4.01-3.08-6-3.08-2 0-5.97 1.09-6 3.08z"
+                  clip-rule="evenodd" />
+              </g>
+            </svg>
+          </button>
+        </ul>
+      </div>
+      </div>
+
+        <div class="dropdown dropdown-left hidden">
+           <a href="#" class="dropdown-item">
+            <img src="assets/navbar/stays.svg" alt="hotels" class="dropdown-img" />
+            <span>Stays</span> 
+          </a>
+            <a href="#" class="dropdown-item">
+              <img src="assets/navbar/flights.svg" alt="flights" class="dropdown-img"/>
+              <span>Flights</span> 
+           </a>
+            <a href="#" class="dropdown-item">
+              <img src="assets/navbar/cars.svg" alt="cars" class="dropdown-img"/>
+              <span>Cars</span>
+           </a>
+            <a href="#" class="dropdown-item">
+              <img src="assets/navbar/packages.svg" alt="packages" class="dropdown-img" />
+              <span>Packages</span> 
+           </a>
+            <a href="" class="dropdown-item">
+              <img src="assets/navbar/thingsToDo.svg" alt="things to do" class="dropdown-img"/> 
+              <span>Things to do</span> 
+           </a>
+            <a href="#" class="dropdown-item">
+              <img src="assets/navbar/cruises.svg" alt="cruises" class="dropdown-img"/>
+              <span>Cruises</span> 
+           </a>
+            <a href="#" class="dropdown-item plain">
+             <span>Deals</span> 
+           </a>
+            <a href="#" class="dropdown-item plain">
+              <span>Groups & meetings</span>
+           </a>
+        </div>
+      </nav>
+    </div>
+    <div class="modal-element hidden">
+      <div class="modal-header">
+      <button class="close-modal">
+        <img src="./assets/navbar/close.svg" alt="close" />
+      </button>
+      <h2 class="modal-header-text">Display settings</h2>
+      </div>
+      <div class="banner-container">
+        <div class="banner-text">
+        You can only access your trip information and Expedia Rewards points from the Expedia site you booked on.
+        </div>
+      </div>
+      <div class="align-selects">
+      <div class="all-selects">
+      <div class="select-container">
+      <div class="select-field">
+      <select id="regions" class="region-select">
+        <option value="us" selected >United States</option>
+      </select>
+      <div class="select-field-text">Region</div>
+      </div>
+    </div>
+    <div class="select-container">
+      <div class="select-field">
+      <select id="languages" class="language-select">
+        <option value="english" selected >English</option>
+        <option value="spanish">Español</option>
+        <option value="chinese">简体中文</option>
+      </select>
+      <div class="select-field-text">Language</div>
+    </div>
+  </div>
+  <div class="select-container disabled">
+      <div class="select-field">
+      <select id="currency" class="currency-select" disabled>
+        <option value="usd" selected >USD $</option>
+      </select>
+      <div class="select-field-text">Currency</div>
+    </div>
+</div>
+  <button class="select-button">Save</button>
+</div>
+  </div>
+  </div>
+</div>
+    <div class="overlay hidden"></div>
+  </div>
+  <form class="cruise-search-form desktop">
+    <div class="buttons-container">
+  <button class="search-form-button" type="button">
+    <div class="button-alignment">
+    <div class="button-icon ">
+      <svg viewBox="0 0 24 24" width="24px" height="24px"  xmlns="http://www.w3.org/2000/svg">
+        <path 
+         d="M5 9a7 7 0 1 1 14 0c0 5.25-7 13-7 13S5 14.25 5 9zm4.5 0a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0z" 
+          fill="#343B53"
+         />
+    </svg>
+    </div>
+    <div class="button-text">
+      <label class="button-label">Going to</label>
+      <span class="button-destination">Caribbean</span>
+    </div>
+  </div></button>
+  <button class="search-form-button disabled" type="button">
+    <div class="button-alignment">
+    <div class="button-icon">
+      <svg viewBox="0 0 24 24" width="24px" height="24px"  xmlns="http://www.w3.org/2000/svg">
+        <path 
+            fill-rule="evenodd" d="M19 3h-1V1h-2v2H8V1H6v2H5a2 2 0 0 0-1.99 2L3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 5v11H5V8h14zm-7 2H7v5h5v-5z" clip-rule="evenodd"
+            fill="#343B53"
+            />
+        </svg>
+    </div>
+    <div class="button-text">
+      <label class="button-label">Going to</label>
+      <span class="button-destination">Caribbean</span>
+    </div>
+  </div></button>
+  <button class="search-form-button disabled" type="button">
+    <div class="button-alignment">
+    <div class="button-icon">
+      <svg viewBox="0 0 24 24" width="24px" height="24px"  xmlns="http://www.w3.org/2000/svg">
+        <path 
+            fill-rule="evenodd" d="M19 3h-1V1h-2v2H8V1H6v2H5a2 2 0 0 0-1.99 2L3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 5v11H5V8h14zm-7 2H7v5h5v-5z" clip-rule="evenodd"
+            fill="#343B53"
+            />
+        </svg>
+    </div>
+    <div class="button-text">
+      <label class="button-label">Going to</label>
+      <span class="button-destination">Caribbean</span>
+    </div>
+  </div></button>
+</div>
+</form>
+<div class="dropdown dropdown-destination hidden">
+  <div class="dropdown-destination-header">
+    <input type="text" placeholder="Going to" class="dropdown-destination-input">
+    <button class="dropdown-destination-clear-button" hidden >
+      <img src="assets/main/x.svg" alt="close" class="clear-input" />
+    </button>
+  </div>
+  <div class="destinations-container">
+  <div class="filter">
+    <div class="result-title">Selected destinations</div>
+    <div class="destinations selected-destinations">
+    </div>
+  </div>
+  <div class="destinations popular-destinations">
+    <div class="result-title">Popular destinations</div>
+  </div>
+  <div class="destinations other-destinations">
+    <div class="result-title">Other Destinations</div>
+</div>
+</div>
+  <div class="destinations-footer">
+    <button class="done">Done</button>
+  </div>
+</body>
+</html>
+      </nav>
+    </div>
+  </body>
+</html>
