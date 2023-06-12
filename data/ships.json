@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Adventure of the Seas",
+    "cruiseLine": "Royal Caribbean International"
+  },
+  {
+    "name": "Allure of the Seas",
+    "cruiseLine": "Royal Caribbean International"
+  },
+  {
+    "name": "Amabella",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaCello",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaCerto",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "Amadahlia",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaDante",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaDara",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaDolce",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "Amaduoro",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaKristina",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaLea",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaLilia",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaLucia",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaLyra",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaMagna",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaMora",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaPrima",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaReina",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaSerena",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaSiena",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaSonata",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaStella",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaVenita",
+    "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "AmaVerde",
+    "cruiseLine": "AmaWaterways"
+  }
+]

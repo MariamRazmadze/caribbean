@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Miami",
+    "location": "Florida, USA"
+  },
+  {
+    "name": "Cape Canaveral",
+    "location": "Florida, USA"
+  },
+  {
+    "name": "Fort Lauderdale",
+    "location": "Florida, USA"
+  },
+  {
+    "name": "Galveston",
+    "location": "Texas, USA"
+  },
+  {
+    "name": "New Orleans",
+    "location": "Louisiana, USA"
+  },
+  {
+    "name": "Mobile",
+    "location": "Alabama, USA"
+  },
+  {
+    "name": "Baltimore",
+    "location": "Maryland, USA"
+  },
+  {
+    "name": "San Juan",
+    "location": "Puerto Rico"
+  },
+  {
+    "name": "Bridgetown",
+    "location": "Barbados"
+  },
+  {
+    "name": "Boston",
+    "location": "Massachusetts, USA"
+  },
+  {
+    "name": "Les Abymes",
+    "location": "Grande-Terre, Guadeloupe"
+  },
+  {
+    "name": "Oranjestad",
+    "location": "Aruba"
+  },
+  {
+    "name": "Fort-de-France",
+    "location": "Martinique"
+  },
+  {
+    "name": "Norfolk",
+    "location": "Virginia, USA"
+  },
+  {
+    "name": "Los Angeles",
+    "location": "California, USA"
+  },
+  {
+    "name": "Panama City",
+    "location": "Panama Province, Panama"
+  },
+  {
+    "name": "La Romana",
+    "location": "La Romana, Dominican Republic"
+  },
+  {
+    "name": "Cartagena",
+    "location": "Bolivar, Colombia"
+  },
+  {
+    "name": "Santiago",
+    "location": "Santiago Metropolitan Region, Chile"
+  },
+  {
+    "name": "Barcelona",
+    "location": "Catalonia, Spain"
+  },
+  {
+    "name": "San Francisco",
+    "location": "California, USA"
+  },
+  {
+    "name": "San Diego",
+    "location": "California, USA"
+  },
+  {
+    "name": "Montreal",
+    "location": "Quebec, Canada"
+  },
+  {
+    "name": "New York",
+    "location": "New York, USA"
+  }
+]

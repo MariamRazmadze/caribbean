@@ -1,97 +1,94 @@
 {
   "popular": [
     {
-      "destination": "Alaska",
+      "name": "Alaska",
       "type": "popular"
     },
     {
-      "destination": "Bahamas",
+      "name": "Bahamas",
       "type": "popular"
     },
     {
-      "destination": "Caribbean",
+      "name": "Caribbean",
       "type": "popular"
     },
     {
-      "destination": "Europe",
+      "name": "Europe",
       "type": "popular"
     },
     {
-      "destination": "Mexico",
+      "name": "Mexico",
       "type": "popular"
     }
   ],
   "other": [
     {
-      "destination": "Africa",
+      "name": "Africa",
       "type": "other"
     },
     {
-      "destination": "Arctic-Anarctic",
+      "name": "Arctic-Anarctic",
       "type": "other"
     },
     {
-      "destination": "Asia",
+      "name": "Asia",
       "type": "other"
     },
     {
-      "destination": "Australia-New Zealand",
+      "name": "Australia-New Zealand",
       "type": "other"
     },
     {
-      "destination": "Bermuda",
+      "name": "Bermuda",
+      "type": "other"
+    },
+    { "name": "Canada-New England", "type": "other" },
+    {
+      "name": "Central America",
       "type": "other"
     },
     {
-      "destination": "Canada-New England",
+      "name": "Galapagos",
       "type": "other"
     },
     {
-      "destination": "Central America",
+      "name": "Getaway at Sea",
       "type": "other"
     },
     {
-      "destination": "Galapagos",
+      "name": "Hawaii",
       "type": "other"
     },
     {
-      "destination": "Getaway at Sea",
+      "name": "Middle East",
       "type": "other"
     },
     {
-      "destination": "Hawaii",
+      "name": "Pacific Coastal",
       "type": "other"
     },
     {
-      "destination": "Middle East",
+      "name": "Panama Canal",
       "type": "other"
     },
     {
-      "destination": "Pacific Coastal",
+      "name": "South America",
       "type": "other"
     },
     {
-      "destination": "Panama Canal",
+      "name": "South Pacific",
       "type": "other"
     },
     {
-      "destination": "South America",
+      "name": "Transatlantic",
       "type": "other"
     },
     {
-      "destination": "South Pacific",
+      "name": "Transpacific",
       "type": "other"
     },
     {
-      "destination": "Transatlantic",
-      "type": "other"
-    },
-    {
-      "destination": "Transpacific",
-      "type": "other"
-    },
-    {
-      "destination": "World",
+      "name": "World",
       "type": "other"
     }
   ]
