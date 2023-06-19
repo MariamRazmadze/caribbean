@@ -2,9 +2,12 @@ const navbarMores = document.querySelectorAll(".navbar-more");
 const dropdownLeft = document.querySelector(".dropdown-left");
 const navbarSignIns = document.querySelectorAll(".navbar-sign-in");
 const dropdownRight = document.querySelector(".dropdown-right");
+const dropdowns = document.querySelectorAll(".dropdown");
 const dropdownDestination = document.querySelector(".dropdown-destination");
 const dropdownDuration = document.querySelector(".dropdown-duration");
 const dropdownTravellers = document.querySelector(".dropdown-travellers");
+const filterContainer = document.querySelector("#filter-container");
+const cardsContainer = document.querySelector(".cards-container");
 const destinationSearchFormButton = document.querySelector(
   ".destination-search-form-button"
 );
@@ -12,12 +15,20 @@ const departurePortsContainer = document.querySelector(
   "#departure-ports-container"
 );
 const departurePortsButton = document.querySelector("#departure-ports-button");
+const dropdownDeparturePortInput = document.querySelector(
+  ".dropdown-departure-port-input"
+);
+const dropdownShipInput = document.querySelector(".dropdown-ship-input");
+const dropdonwDeparture = document.querySelector(".dropdown-departure");
+const dropdownShip = document.querySelector(".dropdown-ship");
 const buttonsContainer = document.querySelector(".buttons-container");
 const shipsButton = document.querySelector("#ships-button");
 const shipsContainer = document.querySelector("#ships-container");
 const durationButton = document.querySelector(".duration-button");
 const travellersButton = document.querySelector(".travellers-button");
 const buttonDestination = document.querySelector(".button-destination");
+const buttonPort = document.querySelector(".button-port");
+const buttonShip = document.querySelector(".button-ship");
 const doneButton = document.querySelector(".done");
 const modal = document.querySelector(".modal-element");
 const overlay = document.querySelector(".overlay");
@@ -26,8 +37,14 @@ const navbarEnglishs = document.querySelectorAll(".navbar-english");
 const popularDestinations = document.querySelector(".popular-destinations");
 const otherDestinations = document.querySelector(".other-destinations");
 const selectedDestinations = document.querySelector(".selected-destinations");
+const selectedDeparturePorts = document.querySelector(
+  ".selected-departure-ports"
+);
+const selectedShips = document.querySelector(".selected-ships");
 const select = document.querySelector("#regions");
 const resultTitle = document.querySelector(".result-title");
+const portsTitle = document.querySelector(".ports-title");
+const shipsTitle = document.querySelector(".ships-title");
 const adultPlusButton = document.querySelector(".adults .plus-button");
 const adultMinusButton = document.querySelector(".adults .minus-button");
 const childrenPlusButton = document.querySelector(".children .plus-button");
@@ -62,19 +79,13 @@ destinationSearchFormButton.addEventListener("click", () => {
 });
 
 departurePortsButton.addEventListener("click", () => {
-  if (departurePortsContainer.style.display === "none") {
-    departurePortsContainer.style.display = "block";
-  } else {
-    departurePortsContainer.style.display = "none";
-  }
+  dropdonwDeparture.classList.toggle("hidden");
+  dropdownDeparturePortInput.focus();
 });
 
 shipsButton.addEventListener("click", () => {
-  if (shipsContainer.style.display === "none") {
-    shipsContainer.style.display = "block";
-  } else {
-    shipsContainer.style.display = "none";
-  }
+  dropdownShip.classList.toggle("hidden");
+  dropdownShipInput.focus();
 });
 
 durationButton.addEventListener("click", () => {
@@ -85,24 +96,10 @@ travellersButton.addEventListener("click", () => {
   dropdownTravellers.classList.toggle("hidden");
 });
 
-dropdownLeft.addEventListener("click", (event) => {
-  event.stopPropagation();
-});
-
-dropdownRight.addEventListener("click", (event) => {
-  event.stopPropagation();
-});
-
-dropdownDestination.addEventListener("click", (event) => {
-  event.stopPropagation();
-});
-
-dropdownDuration.addEventListener("click", (event) => {
-  event.stopPropagation();
-});
-
-dropdownTravellers.addEventListener("click", (event) => {
-  event.stopPropagation();
+dropdowns.forEach((dropdown) => {
+  dropdown.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
 });
 
 document.addEventListener("click", function (event) {
@@ -144,6 +141,17 @@ document.addEventListener("click", function (event) {
   }
 
   if (
+    departurePortsButton !== event.target &&
+    !departurePortsButton.contains(event.target)
+  ) {
+    dropdonwDeparture.classList.add("hidden");
+  }
+
+  if (shipsButton !== event.target && !shipsButton.contains(event.target)) {
+    dropdownShip.classList.add("hidden");
+  }
+
+  if (
     durationButton !== event.target &&
     !durationButton.contains(event.target)
   ) {
@@ -174,17 +182,11 @@ document.addEventListener("keydown", function (event) {
       }
     });
 
-    if (!dropdownDestination.classList.contains("hidden")) {
-      dropdownDestination.classList.add("hidden");
-    }
-
-    if (!dropdownDuration.classList.contains("hidden")) {
-      dropdownDuration.classList.add("hidden");
-    }
-
-    if (!dropdownTravellers.classList.contains("hidden")) {
-      dropdownTravellers.classList.add("hidden");
-    }
+    dropdowns.forEach((dropdown) => {
+      if (!dropdown.classList.contains("hidden")) {
+        dropdown.classList.add("hidden");
+      }
+    });
 
     if (!modal.classList.contains("hidden")) {
       closeModal();
@@ -214,6 +216,14 @@ const closeDuration = function () {
 
 const closeTravelers = function () {
   dropdownTravellers.classList.add("hidden");
+};
+
+const closeDeparture = function () {
+  dropdonwDeparture.classList.add("hidden");
+};
+
+const closeShip = function () {
+  dropdownShip.classList.add("hidden");
 };
 
 for (let i = 0; i < navbarEnglishs.length; i++)
@@ -271,28 +281,77 @@ function createButton(item, itemType, iconUrl) {
         button.removeChild(button.locationIcon);
         button.appendChild(button.closeSelected);
       }
-      selectedDestinations.append(clearAllButton);
-      console.log(selectedDestinations.childElementCount);
+      selectedDestinations.append(clearDestinationsButton);
+      console.log(selectedDestinations);
       if (selectedDestinations.childElementCount > 1) {
-        clearAllButton.style.display = "block";
+        clearDestinationsButton.style.display = "block";
         resultTitle.style.display = "block";
       } else {
-        clearAllButton.style.display = "none";
+        clearDestinationsButton.style.display = "none";
         resultTitle.style.display = "none";
       }
       buttonDestination.textContent = selectedItem
         ? selectedItem.name
         : "Caribbean";
     } else if (itemType === "departure-port") {
+      if (button.parentNode.className === "selected-departure-ports") {
+        popularPorts.append(button);
+        selectedItem = null;
+        button.classList.remove("selected");
+        button.removeChild(button.closeSelected);
+        button.prepend(button.locationIcon);
+      } else {
+        selectedDeparturePorts.append(button);
+        selectedItem = item;
+        button.classList.add("selected");
+        button.removeChild(button.locationIcon);
+        button.appendChild(button.closeSelected);
+      }
+      selectedDeparturePorts.append(clearDeparturesButton);
+      if (selectedDeparturePorts.childElementCount > 1) {
+        clearDeparturesButton.style.display = "block";
+        resultTitle.style.display = "block";
+      } else {
+        clearDeparturesButton.style.display = "none";
+        resultTitle.style.display = "none";
+      }
+      buttonPort.textContent = selectedItem ? selectedItem.name : "Canada";
+      filterCards();
     } else if (itemType === "ship") {
+      if (button.parentNode.className === "ships selected-ships") {
+        allShips.append(button);
+        selectedItem = null;
+        button.classList.remove("selected");
+        button.removeChild(button.closeSelected);
+        button.prepend(button.locationIcon);
+      } else {
+        selectedShips.append(button);
+        selectedItem = item;
+        button.classList.add("selected");
+        button.removeChild(button.locationIcon);
+        button.appendChild(button.closeSelected);
+      }
+      selectedShips.append(clearShipsButton);
+      if (selectedShips.childElementCount > 1) {
+        clearShipsButton.style.display = "block";
+        resultTitle.style.display = "block";
+      } else {
+        clearShipsButton.style.display = "none";
+        resultTitle.style.display = "none";
+      }
+      buttonShip.textContent = selectedItem ? selectedItem.name : "Royal";
     }
+    filterCards();
   });
 
   button.dataset.item = JSON.stringify(item);
   return button;
 }
 
-let items = [];
+let destinationItems = [];
+let departurePortItems = [];
+let shipItems = [];
+
 let selectedItem;
 
 fetch("./data/destinations.json")
@@ -310,18 +369,18 @@ fetch("./data/destinations.json")
         otherDestinations.append(button);
       }
       item.element = button;
-      items.push(item);
+      destinationItems.push(item);
     }
-    selectedItem = items[2];
-    const selectedButton = items.find(function (item) {
+    selectedItem = destinationItems[2];
+    const selectedButton = destinationItems.find(function (item) {
       return item.name === selectedItem.name;
     }).element;
     selectedButton.classList.add("selected");
     selectedButton.removeChild(selectedButton.locationIcon);
     selectedButton.appendChild(selectedButton.closeSelected);
     selectedDestinations.append(selectedButton);
-    selectedDestinations.append(clearAllButton);
-    clearAllButton.style.display = "block";
+    selectedDestinations.append(clearDestinationsButton);
+    clearDestinationsButton.style.display = "block";
   });
 
 fetch("./data/departure-ports.json")
@@ -335,7 +394,7 @@ fetch("./data/departure-ports.json")
       );
       popularPorts.append(button);
       item.element = button;
-      items.push(item);
+      departurePortItems.push(item);
     }
   });
 
@@ -346,15 +405,17 @@ fetch("./data/ships.json")
       const button = createButton(item, "ship", "./assets/main/ship.svg");
       allShips.append(button);
       item.element = button;
-      items.push(item);
+      shipItems.push(item);
     }
+    // ...
   });
 
-const clearAllButton = document.createElement("button");
-clearAllButton.innerHTML = "Clear All";
-clearAllButton.className = "clear-all-button";
+const clearDestinationsButton = document.createElement("button");
+clearDestinationsButton.innerHTML = "Clear Destinations";
+clearDestinationsButton.className =
+  "clear-destinations-button clear-all-button";
 
-clearAllButton.addEventListener("click", function () {
+clearDestinationsButton.addEventListener("click", function () {
   const destinationButtons = selectedDestinations.querySelectorAll(
     ".destination-button"
   );
@@ -368,42 +429,123 @@ clearAllButton.addEventListener("click", function () {
     button.classList.remove("selected");
     button.removeChild(button.closeSelected);
     button.prepend(button.locationIcon);
-    selectedDestinations.append(clearAllButton);
+  }
+  selectedItem = null;
+  clearDestinationsButton.style.display = "none";
+  resultTitle.style.display = "none";
+
+  const destinationFilterButtons = filterContainer.querySelectorAll(
+    ".destination-filter-button"
+  );
+  for (let button of destinationFilterButtons) {
+    button.remove();
+  }
+});
+
+const clearDeparturesButton = document.createElement("button");
+clearDeparturesButton.innerHTML = "Clear Departures";
+clearDeparturesButton.className = "clear-departures-button clear-all-button";
+
+clearDeparturesButton.addEventListener("click", function () {
+  const departurePortButtons = selectedDeparturePorts.querySelectorAll(
+    ".departure-port-button"
+  );
+  for (let button of departurePortButtons) {
+    popularPorts.append(button);
+    button.classList.remove("selected");
+    button.removeChild(button.closeSelected);
+    button.prepend(button.locationIcon);
+  }
+  selectedItem = null;
+  clearDeparturesButton.style.display = "none";
+  portsTitle.style.display = "none";
+
+  const departureFilterButtons = filterContainer.querySelectorAll(
+    ".departure-filter-button"
+  );
+  for (let button of departureFilterButtons) {
+    button.remove();
+  }
+});
+
+const clearShipsButton = document.createElement("button");
+clearShipsButton.innerHTML = "Clear Ships";
+clearShipsButton.className = "clear-ships-button clear-all-button";
+
+clearShipsButton.addEventListener("click", function () {
+  const shipButtons = selectedShips.querySelectorAll(".ship-button");
+  for (let button of shipButtons) {
+    allShips.append(button);
+    button.classList.remove("selected");
+    button.removeChild(button.closeSelected);
+    button.prepend(button.locationIcon);
   }
 
   selectedItem = null;
-  clearAllButton.style.display = "none";
-  resultTitle.style.display = "none";
+  clearShipsButton.style.display = "none";
+  shipsTitle.style.display = "none";
+
+  const shipFilterButtons = filterContainer.querySelectorAll(
+    ".ship-filter-button"
+  );
+  for (let button of shipFilterButtons) {
+    button.remove();
+  }
 });
-selectedDestinations.after(clearAllButton);
 
 doneButton.addEventListener("click", function () {
   dropdownDestination.classList.add("hidden");
 });
 
-dropdownDestinationInput.addEventListener("input", function (e) {
-  const value = e.target.value;
-  console.log(value);
-  let matchingButton = null;
-  items.forEach((item) => {
-    const button = item.element;
-    const isVisible = item.name.toLowerCase().includes(value.toLowerCase());
-    button.classList.toggle("hidden", !isVisible);
-    console.log(button);
-    if (isVisible) {
-      matchingButton = button;
+function filterItems(
+  inputElement,
+  items,
+  destinations,
+  otherDestinations,
+  buttonClass
+) {
+  inputElement.addEventListener("input", function (e) {
+    const value = e.target.value;
+    let matchingButton = null;
+    items.forEach((item) => {
+      const button = item.element;
+      const isVisible = item.name.toLowerCase().includes(value.toLowerCase());
+      button.classList.toggle("hidden", !isVisible);
+      if (isVisible) {
+        matchingButton = button;
+      }
+    });
+    if (otherDestinations) {
+      const popularButton = destinations.querySelector(
+        `.${buttonClass}:not(.hidden)`
+      );
+      const otherButton = otherDestinations.querySelector(
+        `.${buttonClass}:not(.hidden)`
+      );
+      destinations.style.display = popularButton ? "block" : "none";
+      otherDestinations.style.display = otherButton ? "block" : "none";
+    } else {
+      const button = destinations.querySelector(`.${buttonClass}:not(.hidden)`);
+      destinations.style.display = button ? "block" : "none";
     }
   });
-  console.log(matchingButton);
-  const popularButton = popularDestinations.querySelector(
-    ".destination-button:not(.hidden)"
-  );
-  const otherButton = otherDestinations.querySelector(
-    ".destination-button:not(.hidden)"
-  );
-  popularDestinations.style.display = popularButton ? "block" : "none";
-  otherDestinations.style.display = otherButton ? "block" : "none";
-});
+}
+
+filterItems(
+  dropdownDestinationInput,
+  destinationItems,
+  popularDestinations,
+  otherDestinations,
+  "destination-button"
+);
+filterItems(
+  dropdownDeparturePortInput,
+  departurePortItems,
+  popularPorts,
+  null,
+  "departure-port-button"
+);
+filterItems(dropdownShipInput, shipItems, allShips, null, "ship-button");
 
 function updateButton() {
   let adultsNumber = parseInt(
@@ -528,14 +670,42 @@ const dataUrl = "./data/cruises.json";
 fetch(dataUrl)
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
-
     const cardTemplate = document.querySelector(".card");
     const cardsContainer = document.querySelector(".cards-container");
 
     data.cruises.forEach((cruise) => {
       const card = cardTemplate.cloneNode(true);
       card.classList.remove("template");
+
+      const cruiseLineClassName = `cruise-line-${cruise.cruise.cruise_line
+        .toLowerCase()
+        .replace(/ /g, "-")}`;
+      card.classList.add(cruiseLineClassName);
+      console.log(card.classList);
+      card.classList.add(
+        `cabin-experience-${cruise.cruise.cabin_experience.replace(/ /g, "-")}`
+      );
+      console.log(card.classList);
+      card.classList.add(
+        `destination-${cruise.cruise.destination
+          .toLowerCase()
+          .replace(/ /g, "-")}`
+      );
+      console.log(card.classList);
+
+      const className = `departure-port-${cruise.cruise.departure_port
+        .toLowerCase()
+        .replace(/ /g, "-")}`;
+      console.log(`classlist class name: ${className}`);
+      card.classList.add(className);
+
+      console.log(card.classList);
+
+      const classNameShip = `ship-${cruise.cruise.ship
+        .toLowerCase()
+        .replace(/ /g, "-")}`;
+      console.log(`classlist class name: ${className}`);
+      card.classList.add(classNameShip);
 
       const slider = card.querySelector(".slider");
       cruise.cruise.pictures.forEach((picture, index) => {
@@ -589,9 +759,11 @@ fetch(dataUrl)
         card.querySelector(
           ".original-price"
         ).textContent = `$${cruise.cruise.original_price}`;
+
         card.querySelector(
           ".discount-percentage"
         ).textContent = `${cruise.cruise.discount} off`;
+
         let icon = document.createElement("img");
         icon.src = "./assets/main/exclamation.svg";
         card.querySelector(".original-price-container").prepend(icon);
@@ -599,7 +771,6 @@ fetch(dataUrl)
         card.querySelector(".original-price").style.display = "none";
         card.querySelector(".discount-percentage").style.display = "none";
       }
-
       card.querySelector(".price").textContent = `$${cruise.cruise.price}`;
 
       card.querySelector(
@@ -613,24 +784,14 @@ fetch(dataUrl)
     });
 
     const carouselButtons = document.querySelectorAll(".carousel-button");
-    console.log(carouselButtons);
     carouselButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const offset = button.dataset.carouselButton === "next" ? 1 : -1;
         const slides = button.closest(".carousel").querySelector(".slider");
-
-        console.log(slides);
-
         const activeSlide = slides.querySelector("[data-active]");
-        console.log(activeSlide);
         let newIndex = [...slides.children].indexOf(activeSlide) + offset;
-        console.log(newIndex);
-
         if (newIndex < 0) newIndex = slides.children.length - 1;
         if (newIndex >= slides.children.length) newIndex = 0;
-
-        console.log(activeSlide);
-        console.log(slides.children[newIndex]);
 
         slides.children[newIndex].dataset.active = true;
         delete activeSlide.dataset.active;
@@ -640,6 +801,9 @@ fetch(dataUrl)
       });
     });
   });
+
+let cruiseLineCheckboxes;
+let cabinExperienceRadios;
 
 fetch("./data/cruise-lines.json")
   .then((response) => response.json())
@@ -664,6 +828,14 @@ fetch("./data/cruise-lines.json")
       div.appendChild(label);
       cruiseLineContainer.appendChild(div);
     });
+    cruiseLineCheckboxes = document.querySelectorAll(
+      'div.checkbox-alignment input[type="checkbox"][name="cruise-line"]'
+    );
+
+    console.log(cruiseLineCheckboxes);
+    cruiseLineCheckboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", filterCards);
+    });
   });
 
 fetch("./data/cabin-experience.json")
@@ -680,6 +852,10 @@ fetch("./data/cabin-experience.json")
       radio.name = "cabin-experience";
       radio.value = cabinExperience;
 
+      if (cabinExperience === "any") {
+        radio.checked = true;
+      }
+
       const label = document.createElement("label");
       label.htmlFor = cabinExperience;
       label.textContent = cabinExperience;
@@ -689,4 +865,299 @@ fetch("./data/cabin-experience.json")
       div.appendChild(label);
       cabinExperienceContainer.appendChild(div);
     });
+    cabinExperienceRadios = document.querySelectorAll(
+      'input[type="radio"][name="cabin-experience"]'
+    );
+
+    console.log(cabinExperienceRadios);
+    cabinExperienceRadios.forEach((radio) => {
+      radio.addEventListener("change", filterCards);
+    });
   });
+
+const cruisesFoundDiv = document.querySelector(".cruises-found-div");
+function updateCruisesFoundText() {
+  const displayedCards = document.querySelectorAll(
+    ".card:not(.template):not([style*='display: none'])"
+  );
+  cruisesFoundDiv.textContent = `${displayedCards.length} cruises were found`;
+}
+
+function filterCards() {
+  const selectedCruiseLines = Array.from(cruiseLineCheckboxes)
+    .filter((checkbox) => checkbox.checked)
+    .map((checkbox) => checkbox.value);
+  const selectedCabinExperience = Array.from(cabinExperienceRadios).find(
+    (radio) => radio.checked
+  )?.value;
+
+  const selectedDestinations = destinationItems
+    .filter((item) => item.element.classList.contains("selected"))
+    .map((item) => item.name);
+
+  const selectedDeparturePorts = departurePortItems
+    .filter((item) => item.element.classList.contains("selected"))
+    .map((item) => item.name);
+
+  const selectedShips = shipItems
+    .filter((item) => item.element.classList.contains("selected"))
+    .map((item) => item.name);
+
+  console.log(
+    selectedCruiseLines,
+    selectedCabinExperience,
+    selectedDeparturePorts
+  );
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach((card) => {
+    const matchesCruiseLine =
+      selectedCruiseLines.length === 0 ||
+      selectedCruiseLines.some((cruiseLine) =>
+        card.classList.contains(
+          `cruise-line-${cruiseLine.toLowerCase().replace(/ /g, "-")}`
+        )
+      );
+    const matchesCabinExperience =
+      !selectedCabinExperience ||
+      selectedCabinExperience === "any" ||
+      card.classList.contains(
+        `cabin-experience-${selectedCabinExperience
+          .toLowerCase()
+          .replace(/ /g, "-")}`
+      );
+    const matchesDestination =
+      selectedDestinations.length === 0 ||
+      selectedDestinations.some((destination) =>
+        card.classList.contains(
+          `destination-${destination.toLowerCase().replace(/ /g, "-")}`
+        )
+      );
+
+    const matchesDeparturePort =
+      selectedDeparturePorts.length === 0 ||
+      selectedDeparturePorts.some((departurePort) => {
+        const className = `departure-port-${departurePort
+          .toLowerCase()
+          .replace(/ /g, "-")}`;
+        console.log(`Generated class name: ${className}`);
+        return card.classList.contains(className);
+      });
+
+    const matchesShip =
+      selectedShips.length === 0 ||
+      selectedShips.some((ship) => {
+        const className = `ship-${ship.toLowerCase().replace(/ /g, "-")}`;
+        console.log(`Generated class name: ${className}`);
+        return card.classList.contains(className);
+      });
+    console.log(matchesCruiseLine, matchesCabinExperience, matchesDestination);
+    if (
+      matchesCruiseLine &&
+      matchesCabinExperience &&
+      matchesDestination &&
+      matchesDeparturePort &&
+      matchesShip
+    ) {
+      card.style.display = "block";
+      console.log(card.classList);
+    } else {
+      card.style.display = "none";
+      console.log(card.classList);
+    }
+    updateCruisesFoundText();
+  });
+
+  function createFilterButton(text, onClick) {
+    const filterButton = document.createElement("button");
+    const closeSelected = document.createElement("img");
+    const locationIcon = document.createElement("img");
+    closeSelected.src = "assets/main/close.svg";
+    filterButton.classList.add("filter-button");
+    filterButton.innerText = text;
+    filterButton.appendChild(closeSelected);
+    filterButton.addEventListener("click", onClick);
+    filterButton.closeSelected = closeSelected;
+    filterButton.locationIcon = locationIcon;
+    console.log(filterButton);
+    return filterButton;
+  }
+  const existingFilterButtons = filterContainer.querySelectorAll(
+    ".filter-button, .remove-all-filters-button"
+  );
+  existingFilterButtons.forEach((button) => button.remove());
+
+  selectedCruiseLines.forEach((cruiseLine) => {
+    const onClick = () => {
+      const cruiseLineCheckbox = Array.from(cruiseLineCheckboxes).find(
+        (checkbox) => checkbox.value === cruiseLine
+      );
+      cruiseLineCheckbox.checked = false;
+      filterCards();
+      filterContainer.removeChild(filterButton);
+    };
+    const filterButton = createFilterButton(cruiseLine, onClick);
+    filterContainer.appendChild(filterButton);
+  });
+
+  if (selectedCabinExperience && selectedCabinExperience !== "any") {
+    const onClick = () => {
+      const anyCabinExperienceRadio = Array.from(cabinExperienceRadios).find(
+        (radio) => radio.value === "any"
+      );
+      anyCabinExperienceRadio.checked = true;
+      filterCards();
+      filterContainer.removeChild(filterButton);
+    };
+    const filterButton = createFilterButton(selectedCabinExperience, onClick);
+    filterContainer.appendChild(filterButton);
+  }
+
+  console.log("selected", selectedDestinations);
+  selectedDestinations.forEach((destination) => {
+    const onClick = () => {
+      const destinationItem = destinationItems.find(
+        (item) => item.name === destination
+      );
+      destinationItem.element.classList.remove("selected");
+      if (
+        ["Caribbean", "Bahamas", "Alaska", "Europe", "Mexico"].includes(
+          destinationItem.name
+        )
+      ) {
+        popularDestinations.append(destinationItem.element);
+      } else {
+        otherDestinations.append(destinationItem.element);
+      }
+      destinationItem.element.prepend(destinationItem.element.locationIcon);
+      destinationItem.element.removeChild(
+        destinationItem.element.closeSelected
+      );
+      filterCards();
+    };
+    const filterButton = createFilterButton(destination, onClick);
+    filterContainer.appendChild(filterButton);
+    filterButton.classList.add("destination-filter-button");
+  });
+
+  selectedDeparturePorts.forEach((departurePort) => {
+    const onClick = () => {
+      const departurePortItem = departurePortItems.find(
+        (item) => item.name === departurePort
+      );
+      departurePortItem.element.classList.remove("selected");
+      popularPorts.append(departurePortItem.element);
+      departurePortItem.element.prepend(departurePortItem.element.locationIcon);
+      departurePortItem.element.removeChild(
+        departurePortItem.element.closeSelected
+      );
+      filterCards();
+    };
+    const filterButton = createFilterButton(departurePort, onClick);
+    filterContainer.appendChild(filterButton);
+    filterButton.classList.add("departure-filter-button");
+  });
+
+  console.log(selectedShips);
+  selectedShips.forEach((ship) => {
+    const onClick = () => {
+      const shipItem = shipItems.find((item) => item.name === ship);
+      shipItem.element.classList.remove("selected");
+      allShips.append(shipItem.element);
+      shipItem.element.prepend(shipItem.element.locationIcon);
+      shipItem.element.removeChild(shipItem.element.closeSelected);
+
+      filterCards();
+    };
+    const filterButton = createFilterButton(ship, onClick);
+    filterContainer.appendChild(filterButton);
+    filterButton.classList.add("ship-filter-button");
+  });
+
+  const removeAllFiltersButton = document.createElement("button");
+  removeAllFiltersButton.classList.add("remove-all-filters-button");
+  removeAllFiltersButton.innerText = "Remove All Filters";
+  removeAllFiltersButton.addEventListener("click", () => {
+    cruiseLineCheckboxes.forEach((checkbox) => (checkbox.checked = false));
+    cabinExperienceRadios.forEach((radio) => (radio.checked = false));
+    destinationItems.forEach((item) => {
+      item.element.classList.remove("selected");
+      item.element.prepend(item.element.locationIcon);
+      if (item.element.contains(item.element.closeSelected)) {
+        item.element.removeChild(item.element.closeSelected);
+      }
+      if (item.type === "popular") {
+        popularDestinations.append(item.element);
+      } else if (item.type === "other") {
+        otherDestinations.append(item.element);
+      }
+    });
+    departurePortItems.forEach((item) => {
+      item.element.classList.remove("selected");
+      item.element.prepend(item.element.locationIcon);
+      if (item.element.contains(item.element.closeSelected)) {
+        item.element.removeChild(item.element.closeSelected);
+      }
+      popularPorts.append(item.element);
+    });
+    shipItems.forEach((item) => {
+      item.element.classList.remove("selected");
+      item.element.prepend(item.element.locationIcon);
+      if (item.element.contains(item.element.closeSelected)) {
+        item.element.removeChild(item.element.closeSelected);
+      }
+      allShips.append(item.element);
+    });
+    filterCards();
+  });
+  filterContainer.appendChild(removeAllFiltersButton);
+}
+
+const sortSelect = document.querySelector("#sort-select");
+sortSelect.innerHTML = `
+  <option value="priceLowest">Price Lowest</option>
+  <option value="priceHighest">Price Highest</option>
+  <option value="departureEarliest">Departure Earliest</option>
+  <option value="departureLatest">Departure Latest</option>
+  <option value="durationShortest">Duration Shortest</option>
+  <option value="durationLongest">Duration Longest</option>
+`;
+
+sortSelect.addEventListener("change", () => {
+  const selectedOption = sortSelect.value;
+  const cards = Array.from(document.querySelectorAll(".card:not(.template)"));
+  cards.sort((a, b) => {
+    if (selectedOption === "priceLowest") {
+      return (
+        parseFloat(a.querySelector(".price").textContent.replace("$", "")) -
+        parseFloat(b.querySelector(".price").textContent.replace("$", ""))
+      );
+    } else if (selectedOption === "priceHighest") {
+      return (
+        parseFloat(b.querySelector(".price").textContent.replace("$", "")) -
+        parseFloat(a.querySelector(".price").textContent.replace("$", ""))
+      );
+    } else if (selectedOption === "departureEarliest") {
+      return (
+        new Date(a.querySelector(".start-date").textContent) -
+        new Date(b.querySelector(".start-date").textContent)
+      );
+    } else if (selectedOption === "departureLatest") {
+      return (
+        new Date(b.querySelector(".start-date").textContent) -
+        new Date(a.querySelector(".start-date").textContent)
+      );
+    } else if (selectedOption === "durationShortest") {
+      return (
+        parseInt(a.querySelector(".duration").textContent) -
+        parseInt(b.querySelector(".duration").textContent)
+      );
+    } else if (selectedOption === "durationLongest") {
+      return (
+        parseInt(b.querySelector(".duration").textContent) -
+        parseInt(a.querySelector(".duration").textContent)
+      );
+    }
+  });
+  cards.forEach((card) => cardsContainer.appendChild(card));
+});

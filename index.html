@@ -463,7 +463,7 @@
 </div>  
 
 <div class="layout-grid">
-  <div class="side-layout disabled">
+  <div class="side-layout">
     <div>
       <h3 class="side-header">Filter by:</h3>
       <div>
@@ -479,7 +479,7 @@
           </svg>
             </div>
             <div class="button-text">
-              <span class="button-destination">e.g. Canada, Seattle ...</span>
+              <span class="button-destination button-port">e.g. Canada, Seattle ...</span>
             </div>
           </div>
         </button>
@@ -488,27 +488,26 @@
               <button class="close-modal destination mobile" onclick="closeDestination()">
                 <img src="./assets/navbar/close.svg" alt="close" />
               </button>
-              <input type="text" placeholder="Type to search" class="dropdown-destination-input">
+              <input type="text" placeholder="Type to search" class="dropdown-departure-port-input">
               <button class="dropdown-destination-clear-button" hidden >
                 <img src="assets/main/x.svg" alt="close" class="clear-input" />
               </button>
             </div>
-            <div class="destinations-container">
+            <div class="destinations-container ">
             <div class="filter">
-              <div class="result-title">Selected ports</div>
-              <div class="selected-ports">
-              </div>
+              <div class="result-title ports-title">Selected ports</div>
+              <div class="selected-departure-ports"></div>
             </div>
             <div class="popular-ports">
               <div class="result-title">Top 25 popular departure ports</div>
             </div>
           </div>
             <div class="destinations-footer">
-              <button class="done" onclick="closeDestination()">Done</button>
+              <button class=" done" onclick="closeDeparture()">Done</button>
             </div>
         </div>
       </div>
-      <div id="cruise-line-container" class="radio-container">
+      <div id="cruise-line-container" class="checkbox-container">
         <h4 class="side-subheader">Cruise Lines</h4>
       </div>
       <div>
@@ -524,31 +523,31 @@
           </svg>
             </div>
             <div class="button-text">
-              <span class="button-destination">e.g. Royal, Norwegian ...</span>
+              <span class="button-destination button-ship">e.g. Royal, Norwegian ...</span>
             </div>
           </div>
         </button>
-        <div id="ships-container"  class="dropdown hidden">
+        <div id="ships-container"  class="dropdown dropdown-ship hidden">
           <div class="dropdown-destination-header"> 
             <button class="close-modal destination mobile" onclick="closeDestination()">
               <img src="./assets/navbar/close.svg" alt="close" />
             </button>
-            <input type="text" placeholder="Type to search" class="dropdown-destination-input">
+            <input type="text" placeholder="Type to search" class="dropdown-ship-input">
             <button class="dropdown-destination-clear-button" hidden >
               <img src="assets/main/x.svg" alt="close" class="clear-input" />
             </button>
           </div>
           <div class="destinations-container">
           <div class="filter">
-            <div class="result-title">Selected ships</div>
-            <div class="selected-ports">
+            <div class="result-title ships-title">Selected ships</div>
+            <div class="ships selected-ships">
             </div>
           </div>
           <div class="all-ships">
           </div>
         </div>
           <div class="destinations-footer">
-            <button class="done" onclick="closeDestination()">Done</button>
+            <button class="done" onclick="closeShip()">Done</button>
           </div>
       </div>
       </div>
@@ -558,6 +557,13 @@
     </div>
   </div>
   <div class="main-layout">
+    <div id="filter-container">
+    </div>
+    <div class="cruises-found-div">
+    </div>
+    <select id="sort-select" class="sort-select">
+    </select>
+   
     <div class="cards-container">
       <div class="card template">
         <div class="carousel">

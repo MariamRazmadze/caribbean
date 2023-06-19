@@ -98,5 +98,9 @@
   {
     "name": "AmaVerde",
     "cruiseLine": "AmaWaterways"
+  },
+  {
+    "name": "Caribbean Princess",
+    "cruiseLine": "AmaWaterways"
   }
 ]

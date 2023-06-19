@@ -9,6 +9,7 @@
         "logo": "https://mediaim.expedia.com/cruise/pc/7d8b2f0a-c767-43b8-b8df-b13bcdd10a36.jpg?impolicy=resizecrop&ra=fit&rw=1000",
         "start_date": "2023-06-10T00:00:00Z",
         "end_date": "2023-06-17T00:00:00Z",
+        "departure_port": "Fort Lauderdale",
         "itinerary": [
           "Fort Lauderdale, United States",
           "George Town, Cayman Islands",
@@ -34,11 +35,12 @@
       "cruise": {
         "duration": "5 night",
         "destination": "Caribbean",
-        "cruise_line": "Norwegian Cruise Line",
+        "cruise_line": "norwegian cruise line",
         "ship": "Norwegian Sky",
         "logo": "https://mediaim.expedia.com/cruise/nc/2dde9fb8-a81e-4bcf-b613-013a51d5e6a3.jpg?impolicy=resizecrop&ra=fit&rw=1000",
         "start_date": "2023-06-27T00:00:00Z",
         "end_date": "2023-07-02T00:00:00Z",
+        "departure_port": "Miami",
         "itinerary": [
           "Miami, United States",
           "Key West, United States",
@@ -68,6 +70,7 @@
         "logo": "https://mediaim.expedia.com/cruise/ms/2a95ef15-33e5-48bb-b0b7-df9f24b0923a.jpg?impolicy=resizecrop&ra=fit&rw=1000",
         "start_date": "2023-06-11T00:00:00Z",
         "end_date": "2023-06-18T00:00:00Z",
+        "departure_port": "Miami",
         "itinerary": [
           "Miami, United States",
           "Puerto Plata, Dominican Republic",
@@ -99,6 +102,7 @@
         "logo": "https://mediaim.expedia.com/cruise/ms/2a95ef15-33e5-48bb-b0b7-df9f24b0923a.jpg?impolicy=resizecrop&ra=fit&rw=1000",
         "start_date": "2023-06-25T00:00:00Z",
         "end_date": "2023-07-02T00:00:00Z",
+        "departure_port": "Miami",
         "itinerary": [
           "Port Canaveral, United States",
           "Ocean Cay MSC Marine Reserve (Private Island), Bahamas",
@@ -128,6 +132,7 @@
         "logo": "https://mediaim.expedia.com/cruise/pc/7d8b2f0a-c767-43b8-b8df-b13bcdd10a36.jpg?impolicy=resizecrop&ra=fit&rw=1000",
         "start_date": "2023-06-10T00:00:00Z",
         "end_date": "2023-06-17T00:00:00Z",
+        "departure_port": "Fort Lauderdale",
         "itinerary": [
           "Fort Lauderdale, United States",
           "George Town, Cayman Islands",
@@ -158,6 +163,7 @@
         "logo": "https://mediaim.expedia.com/cruise/nc/2dde9fb8-a81e-4bcf-b613-013a51d5e6a3.jpg?impolicy=resizecrop&ra=fit&rw=1000",
         "start_date": "2023-06-27T00:00:00Z",
         "end_date": "2023-07-02T00:00:00Z",
+        "departure_port": "Miami",
         "itinerary": [
           "Miami, United States",
           "Key West, United States",
@@ -187,6 +193,7 @@
         "logo": "https://mediaim.expedia.com/cruise/ms/2a95ef15-33e5-48bb-b0b7-df9f24b0923a.jpg?impolicy=resizecrop&ra=fit&rw=1000",
         "start_date": "2023-06-11T00:00:00Z",
         "end_date": "2023-06-18T00:00:00Z",
+        "departure_port": "Miami",
         "itinerary": [
           "Miami, United States",
           "Puerto Plata, Dominican Republic",
@@ -218,6 +225,7 @@
         "logo": "https://mediaim.expedia.com/cruise/ms/2a95ef15-33e5-48bb-b0b7-df9f24b0923a.jpg?impolicy=resizecrop&ra=fit&rw=1000",
         "start_date": "2023-06-25T00:00:00Z",
         "end_date": "2023-07-02T00:00:00Z",
+        "departure_port": "Miami",
         "itinerary": [
           "Port Canaveral, United States",
           "Ocean Cay MSC Marine Reserve (Private Island), Bahamas",
