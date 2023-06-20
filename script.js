@@ -982,11 +982,11 @@ function filterCards() {
       matchesDeparturePort &&
       matchesShip
     ) {
-      card.style.display = "grid";
-      console.log(card.classList);
+      if (!card.classList.contains("template")) {
+        card.style.display = "grid";
+      }
     } else {
       card.style.display = "none";
-      console.log(card.classList);
     }
     updateCruisesFoundText();
     filterContainer.style.display = "block";
