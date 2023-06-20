@@ -256,7 +256,8 @@ body {
 
 .region-select,
 .language-select,
-.currency-select {
+.currency-select,
+.sort-select {
   background-color: transparent;
   border: 1px solid #757577;
   border-radius: 0.5rem;
@@ -350,7 +351,6 @@ body {
 
 .buttons-container {
   grid-column: span 1;
-  padding-top: 0.5rem 0.5rem 0 0.5rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
@@ -961,6 +961,102 @@ body {
   margin-top: 0.5rem;
 }
 
+.cruises-found-div {
+  font-size: 0.75rem;
+  color: #343b53;
+  max-width: 502px;
+  margin: 0 1.25rem;
+}
+
+.banner-layout {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem;
+  background-color: white;
+  padding: 1rem;
+  border: 1px solid #d5d5d5;
+  border-radius: 0.5rem;
+}
+.banner-links {
+  display: flex;
+  font-size: 0.875rem;
+  gap: 1.5rem;
+  line-height: 1.125rem;
+  margin-top: 0.5rem;
+}
+.banner-links a {
+  color: #3662d8;
+  text-decoration: underline;
+}
+.contact-text {
+  color: #343b53;
+  font-size: 0.875rem;
+  font-family: inherit;
+}
+.banner-header {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+}
+
+.icon-container {
+  width: 44px;
+  height: 44px;
+  background-color: #becdf8;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upper {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-width: 2rem;
+  padding: 0 0.75rem;
+  border-radius: 0.5rem;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: inherit;
+  white-space: nowrap;
+  height: 2rem;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.upper-sign-up {
+  background-color: #141d38;
+}
+
+.upper-sign-up:hover {
+  background-color: #4c5064;
+}
+.upper-icon-container {
+  background-color: #f0ebe8;
+  margin: 0.75rem;
+}
+.upper-banner-layout {
+  background-color: #141d38;
+  margin-top: 1.5rem;
+}
+.upper-banner-header {
+  color: #ffffff;
+  font-size: 14px;
+  max-width: 350px;
+  margin-right: 1rem;
+}
+.upper-banner-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+.upper-banner-info {
+  display: flex;
+  flex-direction: column;
+}
+
 @media (min-width: 768px) {
   .tablet-desktop {
     display: block;
@@ -1105,6 +1201,12 @@ body {
   .select-button {
     width: 432px;
   }
+
+  .sort-select {
+    height: 48px;
+    width: 196px;
+    background-color: #ffffff;
+  }
   .dropdown-right {
     position: absolute;
     top: 60px;
@@ -1211,9 +1313,8 @@ body {
   .side-layout {
     display: block;
     grid-column: span 3;
-    padding: 0.5rem;
-    margin: 1.75rem;
-    margin-left: 5rem;
+    padding: 0;
+    margin: 2.5rem 1.25rem 2rem 5rem;
     border-top: 1px solid #727483;
   }
 
@@ -1237,6 +1338,7 @@ body {
   .main-layout {
     grid-column: span 7;
     grid-template-columns: repeat(1, minmax(0, 1fr));
+    padding: 0 1.5rem 0 0.5rem;
   }
 
   .card {
@@ -1264,9 +1366,9 @@ body {
   .buttons-container {
     display: grid;
     grid-column: span 12;
-    gap: 0.4rem;
     margin-top: 7px;
     grid-template-columns: repeat(5, 1fr);
+    padding-right: 1rem;
   }
 
   .side-header {
@@ -1280,5 +1382,57 @@ body {
     font-weight: 500;
     line-height: 1.125rem;
     margin-top: 1.5rem;
+  }
+
+  .main-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 1rem 1.5rem;
+  }
+
+  #filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 1.5rem;
+    max-width: 735px;
+  }
+
+  .filter-button {
+    margin: 0.25rem;
+  }
+
+  .remove-all-filters-button {
+    font-family: inherit;
+    background-color: transparent;
+    color: #3662d8;
+    cursor: pointer;
+    text-decoration: underline;
+    padding-left: 1.5rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+
+  .cruises-found-div {
+    margin: 0;
+  }
+
+  .upper {
+    font-size: 1rem;
+    line-height: 1.25rem;
+    padding: 0.25rem 1rem;
+    height: 36px;
+  }
+
+  .upper-banner-info {
+    flex-direction: row;
+    align-items: center;
+  }
+  .upper-banner-buttons {
+    padding-bottom: 0.5rem;
+  }
+
+  .banner-layout {
+    margin-right: 1.5rem;
   }
 }

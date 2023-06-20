@@ -8,6 +8,7 @@ const dropdownDuration = document.querySelector(".dropdown-duration");
 const dropdownTravellers = document.querySelector(".dropdown-travellers");
 const filterContainer = document.querySelector("#filter-container");
 const cardsContainer = document.querySelector(".cards-container");
+const banner = document.querySelector(".middle-banner");
 const destinationSearchFormButton = document.querySelector(
   ".destination-search-form-button"
 );
@@ -52,6 +53,7 @@ const childrenMinusButton = document.querySelector(".children .minus-button");
 const travellersDynamic = document.querySelector(".travellers-dynamic");
 const popularPorts = document.querySelector(".popular-ports");
 const allShips = document.querySelector(".all-ships");
+const firstCardContainer = document.querySelector(".first-card-container");
 const dropdownDestinationInput = document.querySelector(
   ".dropdown-destination-input"
 );
@@ -165,6 +167,21 @@ document.addEventListener("click", function (event) {
     dropdownTravellers.classList.add("hidden");
   }
 });
+
+const updateBannerPosition = () => {
+  const firstVisibleCard = document.querySelector(
+    ".card:not(.template):not([style*='display: none'])"
+  );
+  console.log("firstVisible", firstVisibleCard);
+  if (firstVisibleCard) {
+    firstVisibleCard.parentNode.insertBefore(
+      banner,
+      firstVisibleCard.nextSibling
+    );
+  } else {
+    cardsContainer.appendChild(banner);
+  }
+};
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
@@ -673,7 +690,7 @@ fetch(dataUrl)
     const cardTemplate = document.querySelector(".card");
     const cardsContainer = document.querySelector(".cards-container");
 
-    data.cruises.forEach((cruise) => {
+    data.cruises.forEach((cruise, index) => {
       const card = cardTemplate.cloneNode(true);
       card.classList.remove("template");
 
@@ -780,7 +797,12 @@ fetch(dataUrl)
       const exploreOnMapLink = card.querySelector(".explore-on-map");
       exploreOnMapLink.href = cruise.cruise.explore_on_map;
 
-      cardsContainer.appendChild(card);
+      if (index === 0) {
+        firstCardContainer.appendChild(card);
+      } else {
+        cardsContainer.appendChild(card);
+      }
+      updateBannerPosition();
     });
 
     const carouselButtons = document.querySelectorAll(".carousel-button");
@@ -800,6 +822,7 @@ fetch(dataUrl)
         delete activeSlide.dataset.active;
       });
     });
+    updateCruisesFoundText();
   });
 
 let cruiseLineCheckboxes;
@@ -880,7 +903,7 @@ function updateCruisesFoundText() {
   const displayedCards = document.querySelectorAll(
     ".card:not(.template):not([style*='display: none'])"
   );
-  cruisesFoundDiv.textContent = `${displayedCards.length} cruises were found`;
+  cruisesFoundDiv.textContent = `${displayedCards.length} cruises found - Prices are per traveler, available within last 24 hours and valid for US and Canadian residents only. Taxes, fees, and port expenses not included. Fuel supplement may apply.`;
 }
 
 function filterCards() {
@@ -959,13 +982,15 @@ function filterCards() {
       matchesDeparturePort &&
       matchesShip
     ) {
-      card.style.display = "block";
+      card.style.display = "grid";
       console.log(card.classList);
     } else {
       card.style.display = "none";
       console.log(card.classList);
     }
     updateCruisesFoundText();
+    filterContainer.style.display = "block";
+    updateBannerPosition();
   });
 
   function createFilterButton(text, onClick) {
@@ -1109,14 +1134,15 @@ function filterCards() {
       allShips.append(item.element);
     });
     filterCards();
+    filterContainer.style.display = "none";
   });
   filterContainer.appendChild(removeAllFiltersButton);
 }
 
 const sortSelect = document.querySelector("#sort-select");
 sortSelect.innerHTML = `
+<option value="priceHighest">Price Highest</option>
   <option value="priceLowest">Price Lowest</option>
-  <option value="priceHighest">Price Highest</option>
   <option value="departureEarliest">Departure Earliest</option>
   <option value="departureLatest">Departure Latest</option>
   <option value="durationShortest">Duration Shortest</option>
