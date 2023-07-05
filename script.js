@@ -1187,3 +1187,18 @@ sortSelect.addEventListener("change", () => {
   });
   cards.forEach((card) => cardsContainer.appendChild(card));
 });
+
+$(document).ready(function () {
+  $("#date-range-picker").daterangepicker({
+    locale: {
+      format: "MMM D",
+    },
+    numberOfMonths: 2,
+    startDate: moment().subtract(29, "days"),
+    endDate: moment(),
+  });
+
+  $(".search-form-button.departing-between").on("click", function () {
+    $("#date-range-picker").focus();
+  });
+});

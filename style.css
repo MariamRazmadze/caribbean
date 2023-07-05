@@ -49,6 +49,8 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  padding: 0;
+  margin: 0;
 }
 
 .navbar-item {
@@ -348,6 +350,12 @@ body {
   font-weight: 300;
   line-height: 18px;
 }
+.buttons-container-layout {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  width: 100vw;
+  padding-right: 1rem;
+}
 
 .buttons-container {
   grid-column: span 1;
@@ -392,6 +400,27 @@ body {
   to {
     fill: #343b53;
   }
+}
+
+.button-destination .datepicker {
+  border: none;
+  outline: none;
+  height: 20px;
+  width: 150px;
+}
+
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+}
+
+.daterangepicker {
+  margin-top: -45px;
+  margin-left: -50px;
+  transform: scale(2);
+  transform-origin: top left;
 }
 
 .search-form-button.ship,
@@ -641,6 +670,7 @@ body {
 .duration-input {
   font-size: 16px;
   font-weight: 500;
+  height: 1rem;
 }
 .duration-label {
   font-size: 11px;
@@ -718,7 +748,9 @@ body {
   height: 30px;
   border-radius: 50%;
   border: 1px solid;
-  padding-top: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .minus-button:focus,
 .plus-button:focus {
@@ -1074,6 +1106,11 @@ body {
     height: 28px;
     margin-top: 3px;
   }
+
+  .navbar-item a {
+    text-decoration: none;
+    color: inherit;
+  }
   .navbar-item:hover,
   .navbar-item a:hover {
     color: #4663be;
@@ -1213,10 +1250,18 @@ body {
     right: 4.5rem;
   }
 
+  .destination-wrapper,
+  .duration-wrapper,
+  .travellers-wrapper,
+  .ports-wrapper,
+  .ships-wrapper {
+    position: relative;
+  }
+
   .dropdown-destination {
     position: absolute;
-    left: 80px;
-    top: 88px;
+    left: 0;
+    top: 0;
     height: 516px;
     width: 375px;
     z-index: 10;
@@ -1225,13 +1270,15 @@ body {
 
   .dropdown-departure {
     width: 375px;
-    top: 41.1%;
+    top: 0;
+    left: 0;
     padding-bottom: 0;
   }
 
   .dropdown-ship {
     width: 375px;
-    top: 97.5%;
+    top: 0;
+    left: 0;
     padding-bottom: 0;
   }
   .dropdown-destination-header {
@@ -1264,8 +1311,8 @@ body {
   }
   .dropdown-duration {
     position: absolute;
-    left: 30.5%;
-    top: 21%;
+    left: -55%;
+    top: 3.7rem;
     padding: 1rem;
     width: 375px;
     height: 184px;
@@ -1286,8 +1333,8 @@ body {
   }
   .dropdown-travellers {
     position: absolute;
-    left: 48.5%;
-    top: 21%;
+    left: -55%;
+    top: 3.7rem;
     padding: 1rem;
     width: 375px;
     height: fit-content;
@@ -1358,6 +1405,10 @@ body {
     grid-row: span 1;
   }
 
+  .info ul {
+    padding: 0;
+  }
+
   .pricing {
     grid-column: span 6;
     grid-row: span 1;
@@ -1365,10 +1416,10 @@ body {
 
   .buttons-container {
     display: grid;
-    grid-column: span 12;
-    margin-top: 7px;
-    grid-template-columns: repeat(5, 1fr);
-    padding-right: 1rem;
+    grid-column: span 5;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    padding: 1rem 5.5rem;
+    gap: 0.2rem;
   }
 
   .side-header {
